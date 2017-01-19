@@ -6,7 +6,46 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
+	
+	<!-- DB 접속 정보를 가지고 있는 문서 읽어들이기 -->
+	<beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<beans:property name="location">
+			<beans:value>classpath:com/gura/spring/mybatis/db.properties</beans:value>
+		</beans:property>
+	</beans:bean>
+	<!-- DataSource 설정 -->
+	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<beans:property name="driverClass" value="${driver}"/>
+		<beans:property name="url" value="${url}"/>
+		<beans:property name="username" value="${username}"/>
+		<beans:property name="password" value="${password}"/>
+	</beans:bean>
+	
+	<!-- SqlSessionFactory 객체 -->
+	<beans:bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="configLocation"
+			value="classpath:com/gura/spring/mybatis/Configuration.xml"/>
+	</beans:bean>
+	
+	<!-- Dao 에 주입해줄 SqlSession 인터페이스를 구현한 SqlSessionTemplate 객체 -->
+	<beans:bean class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg name="sqlSessionFactory" ref="sessionFactory"/>
+	</beans:bean>	
+	
+	<!-- Multipart 폼 전송을 처리하기 위한 bean  -->
+	<beans:bean id="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10240000"/>
+	</beans:bean>	
+	
+	<!-- AbstractView Type 객체로 응답하기 위해  -->
+	<beans:bean 
+		class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"/>
+	</beans:bean>	
+	
+	
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
