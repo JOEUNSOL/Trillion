@@ -23,6 +23,31 @@ public class UsersController {
 	@Autowired
 	private UsersService usersService;
 	
+	// "/users/signin.do" 로그인 요청 처리
+	@RequestMapping("/users/signin")
+	public ModelAndView signin(@ModelAttribute UsersDto dto,
+			@RequestParam String uri, HttpSession session){
+		//아이디가 비밀번호가 유효한지 여부를 확인한다. 
+		boolean isValid=usersService.isValid(dto);
+		ModelAndView mView=new ModelAndView();
+		if(isValid){ //아이디 비밀번호가 맞는 정보인 경우
+			//로그인 처리를 해준다.
+			session.setAttribute("id", dto.getId());
+			mView.addObject("msg", dto.getId()+" 님 로그인 되었습니다.");
+			mView.addObject("redirectUri", uri);
+		}else{
+			//아이디 혹은 비밀번호가 틀리다는 정보를 응답한다.
+			mView.addObject("msg", "아이디 혹은 비밀번호가 틀려요");
+			String location=session.getServletContext().getContextPath()+
+					"/users/signin_form.do?uri="+uri;
+			mView.addObject("redirectUri", location);
+		}
+		//알림 페이지로 forward 이동 시킨다. 
+		mView.setViewName("users/alert");
+		return mView;
+	}
+	
+	
 	// "/users/signin_form.do" 로그인 폼 요청 처리
 	@RequestMapping("/users/signin_form")
 	public String signinForm(HttpSession session){

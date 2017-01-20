@@ -22,9 +22,9 @@ public class UsersServiceImpl implements UsersService{
 	}
 
 	@Override
-	public ModelAndView isValid(UsersDto dto) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean isValid(UsersDto dto) {
+		
+		return usersDao.isValid(dto);
 	}
 
 	@Override
