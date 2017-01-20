@@ -1,5 +1,8 @@
 package com.gura.spring.users.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,9 +41,23 @@ public class UsersServiceImpl implements UsersService{
 	}
 
 	@Override
-	public ModelAndView canUseId(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Map<String, Object> canUseId(String id) {
+		//아이디 사용가능 여부를 리턴 받는다. 
+		boolean canUse = usersDao.canUseId(id);
+		//결과 값을 Map 에 담는다.
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("canUse", canUse);
+		//Map 리턴해주기 
+		return map;
 	}
 
 }
+
+
+
+
+
+
+
+
+
