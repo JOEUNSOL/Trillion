@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<!-- Type 별칭 미리 정의하기 -->
 	<typeAliases>
-		
+		<typeAlias type="com.gura.spring.users.dto.UsersDto" alias="usersDto"/>
 	</typeAliases>
 
 	<!-- sql 문을 정의하고 있는 xml 문서 정보 -->
