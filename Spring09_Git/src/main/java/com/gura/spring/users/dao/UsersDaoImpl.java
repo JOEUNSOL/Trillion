@@ -30,8 +30,7 @@ public class UsersDaoImpl implements UsersDao{
 
 	@Override
 	public void update(UsersDto dto) {
-		// TODO Auto-generated method stub
-		
+		session.update("users.update", dto);
 	}
 
 	@Override

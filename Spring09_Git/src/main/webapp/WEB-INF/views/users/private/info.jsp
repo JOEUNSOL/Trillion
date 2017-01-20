@@ -8,6 +8,7 @@
 <title>/views/users/private/info.jsp</title>
 </head>
 <body>
+<a href="${pageContext.request.contextPath }">인덱스 페이지로 가기</a>
 <h3>회원 가입된 정보 입니다.</h3>
 <table>
 	<thead>
