@@ -46,8 +46,7 @@ public class CafeServiceImpl implements CafeService{
 
 	@Override
 	public void update(CafeDto dto) {
-		// TODO Auto-generated method stub
-		
+		cafeDao.update(dto);
 	}
 
 	@Override

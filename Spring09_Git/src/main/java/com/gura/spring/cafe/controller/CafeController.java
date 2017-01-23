@@ -60,7 +60,20 @@ public class CafeController {
 		//리턴해주기
 		return mView;
 	}
+	@RequestMapping("/cafe/private/update")
+	public String update(@ModelAttribute CafeDto dto){
+		cafeService.update(dto);
+		return "redirect:/cafe/list.do";
+	}
 }
+
+
+
+
+
+
+
+
 
 
 
