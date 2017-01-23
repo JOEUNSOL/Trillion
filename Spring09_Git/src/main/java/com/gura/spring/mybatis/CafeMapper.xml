@@ -11,6 +11,17 @@
 			(SELECT result1.*, ROWNUM rnum
 			 FROM 	(SELECT <include refid="cafeColumns"/>
 					FROM board_cafe
+					<where>
+					  	<if test="writer != null">
+					  		OR writer LIKE '%'||#{writer}||'%'
+					  	</if>
+					  	<if test="title != null">
+					  		OR title LIKE '%'||#{title}||'%'
+					  	</if>
+					  	<if test="content != null">
+					  		OR content LIKE '%'||#{content}||'%'
+					  	</if>
+				  	</where>
 					ORDER BY num DESC) result1
 			)
 		WHERE 
