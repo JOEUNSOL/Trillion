@@ -5,10 +5,16 @@
 		num,writer,title,content,viewCount,
 		TO_CHAR(regdate, 'YY.MM.DD HH24:MI') AS regdate
 	</sql>
-	<select id="getList" resultType="cafeDto">
-		SELECT <include refid="cafeColumns"/>
-		FROM board_cafe
-		ORDER BY num DESC
+	<select id="getList" resultType="cafeDto" parameterType="cafeDto">
+		SELECT *
+		FROM
+			(SELECT result1.*, ROWNUM rnum
+			 FROM 	(SELECT <include refid="cafeColumns"/>
+					FROM board_cafe
+					ORDER BY num DESC) result1
+			)
+		WHERE 
+		<![CDATA[ rnum >= #{startRowNum} AND rnum <= #{endRowNum} ]]>
 	</select>	
 	<insert id="insert" parameterType="cafeDto">
 		INSERT INTO board_cafe
@@ -35,7 +41,12 @@
 		UPDATE board_cafe
 		SET title=#{title}, content=#{content}
 		WHERE num=#{num}
-	</update>		
+	</update>	
+	
+	<select id="getCount" resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM board_cafe
+	</select>	
 </mapper>
 
 
