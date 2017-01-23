@@ -29,5 +29,22 @@
 	</tr>
 </table>
 <div class="content">${dto.content }</div>
+<script>
+	function deleteCheck(){
+		var isDelete=confirm("글을 삭제 하시겠습니까?");
+		if(isDelete){
+			location.href="private/delete.do?num=${dto.num}";
+		}
+	}
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

@@ -44,8 +44,19 @@ public class CafeController {
 		mView.setViewName("cafe/detail");
 		return mView;
 	}
-	
+	//글 삭제 요청 처리 
+	@RequestMapping("/cafe/private/delete")
+	public String delete(@RequestParam int num){
+		cafeService.delete(num);
+		return "redirect:/cafe/list.do";
+	}
 }
+
+
+
+
+
+
 
 
 
