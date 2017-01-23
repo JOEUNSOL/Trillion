@@ -6,11 +6,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- Type 별칭 미리 정의하기 -->
 	<typeAliases>
 		<typeAlias type="com.gura.spring.users.dto.UsersDto" alias="usersDto"/>
+		<typeAlias type="com.gura.spring.cafe.dto.CafeDto" alias="cafeDto"/>
 	</typeAliases>
 
 	<!-- sql 문을 정의하고 있는 xml 문서 정보 -->
 	<mappers>
 		<mapper resource="com/gura/spring/mybatis/UsersMapper.xml"/>
+		<mapper resource="com/gura/spring/mybatis/CafeMapper.xml"/>
 	</mappers>
 </configuration>
 
