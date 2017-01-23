@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring.cafe.dto.CafeDto;
@@ -35,6 +36,13 @@ public class CafeController {
 	public String insert(@ModelAttribute CafeDto dto){
 		cafeService.insert(dto);
 		return "redirect:/cafe/list.do";
+	}
+	
+	@RequestMapping("/cafe/detail")
+	public ModelAndView detail(@RequestParam int num){
+		ModelAndView mView=cafeService.getData(num);
+		mView.setViewName("cafe/detail");
+		return mView;
 	}
 	
 }

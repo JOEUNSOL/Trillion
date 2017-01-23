@@ -16,6 +16,17 @@
 		VALUES(board_cafe_seq.NEXTVAL, 
 		#{writer}, #{title}, #{content}, #{viewCount}, SYSDATE)
 	</insert>	
+	<select id="getData" parameterType="int" resultType="cafeDto">
+		SELECT <include refid="cafeColumns"/>
+		FROM board_cafe
+		WHERE num=#{num}
+	</select>
+	
+	<update id="increaseViewCount" parameterType="int">
+		UPDATE board_cafe
+		SET viewCount = viewCount+1
+		WHERE num=#{num}
+	</update>	
 </mapper>
 
 

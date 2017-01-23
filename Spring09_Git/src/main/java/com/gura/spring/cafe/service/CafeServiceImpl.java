@@ -33,8 +33,15 @@ public class CafeServiceImpl implements CafeService{
 
 	@Override
 	public ModelAndView getData(int num) {
-		// TODO Auto-generated method stub
-		return null;
+		//1. 글정보를 얻어온다.
+		CafeDto dto=cafeDao.getData(num);
+		//2. 조회수를 올린다.
+		cafeDao.increaseViewCount(num);
+		//3. 글정보를 ModelAndView 객체에 담는다.
+		ModelAndView mView=new ModelAndView();
+		mView.addObject("dto", dto);
+		//리턴해준다.
+		return mView;
 	}
 
 	@Override
