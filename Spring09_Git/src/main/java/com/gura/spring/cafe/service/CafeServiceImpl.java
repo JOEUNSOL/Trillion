@@ -55,6 +55,17 @@ public class CafeServiceImpl implements CafeService{
 		cafeDao.delete(num);
 	}
 
+	@Override
+	public ModelAndView updateForm(int num) {
+		//수정할 글정보를 얻어온다. 
+		CafeDto dto=cafeDao.getData(num);
+		//수정할 글정보를 ModelAndView 객체에 담고 
+		ModelAndView mView=new ModelAndView();
+		mView.addObject("dto", dto);
+		//리턴해준다. 
+		return mView;
+	}
+
 }
 
 
