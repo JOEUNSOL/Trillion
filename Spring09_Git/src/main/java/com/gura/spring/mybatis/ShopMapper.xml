@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop">
+	<!-- java.util.HashMap 은 hashmap 으로 표기 할수 있다 -->
+	<update id="deposit" parameterType="hashmap">
+		UPDATE client_account
+		SET balance = balance + #{money}
+		WHERE id = #{id}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
