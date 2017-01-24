@@ -3,9 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	
 	<!-- DB 접속 정보를 가지고 있는 문서 읽어들이기 -->
 	<beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -64,6 +70,27 @@
 	<context:component-scan base-package="com.gura.spring.users.*" />
 	<context:component-scan base-package="com.gura.spring.cafe.*" />
 	<context:component-scan base-package="com.gura.spring.shop.*" />
+	
+   <!-- Spring Transaction Manager 설정 -->
+	<beans:bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<beans:property name="dataSource" ref="dataSource"/>
+	</beans:bean>
+	
+	<!-- 어노테이션으로 트렌젝션을 적용할 위치를 지정할수 있도록 -->
+	<tx:annotation-driven transaction-manager="txManager"/>
+	
+	<!-- 트렌젝션 블럭에서 발생한 에러 핸들링 -->
+	<beans:bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<beans:property name="exceptionMappings">
+			<beans:props>
+				<beans:prop key="org.springframework.dao.DataAccessException">
+					error/sqlError
+				</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+	
 </beans:beans>
 
 

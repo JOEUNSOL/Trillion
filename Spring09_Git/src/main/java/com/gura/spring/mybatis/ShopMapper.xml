@@ -7,6 +7,16 @@
 		SET balance = balance + #{money}
 		WHERE id = #{id}
 	</update>
+	<update id="withDraw" parameterType="hashmap">
+		UPDATE client_account
+		SET balance = balance - #{money}
+		WHERE id = #{id}
+	</update>
+	<update id="addPoint" parameterType="hashmap">
+		UPDATE client_account
+		SET bonusPoint = bonusPoint + #{point}
+		WHERE id = #{id}
+	</update>
 </mapper>
 
 
