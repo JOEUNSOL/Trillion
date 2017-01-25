@@ -40,7 +40,22 @@ public class ShopDaoImpl implements ShopDao{
 
 	@Override
 	public void deliveryRequest() {
-		System.out.println("배송 요청을 했습니다.");
+		// 트렌젝션을 관리하는 블럭에 Custom Exception 을 발생시켜서
+		// 종류별로 Exception 을 핸들링 할수 있다.
+		
+		//특정 조건에서 발생한다는 가정!
+		throw new OopsException("오늘은 눈이와서 배송을 못해요!");
+		//System.out.println("배송 요청을 했습니다.");
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
