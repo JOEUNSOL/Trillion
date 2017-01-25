@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Component
 public class LoginAspect {
 	
-	@Around("execution(* com.gura.spring.users.controller.UsersController.auth*(..))")
+	@Around("execution(* com.gura.spring.users.controller.UsersController.auth*(..)) || execution(* com.gura.spring.cafe.controller.CafeController.auth*(..))")
 	public Object loginCheck(ProceedingJoinPoint joinPoint) 
 			throws Throwable{
 		// 컨트롤러에 aop 를 적용했을때 HttpServletRequest 참조값 얻어오기
