@@ -66,10 +66,11 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.gura.spring" />
+	<context:component-scan base-package="com.gura.spring"/>
 	<context:component-scan base-package="com.gura.spring.users.*" />
 	<context:component-scan base-package="com.gura.spring.cafe.*" />
 	<context:component-scan base-package="com.gura.spring.shop.*" />
+	<context:component-scan base-package="com.gura.spring.aop"/>
 	
    <!-- Spring Transaction Manager 설정 -->
 	<beans:bean id="txManager"
@@ -93,7 +94,8 @@
 			</beans:props>
 		</beans:property>
 	</beans:bean>
-	
+	<!-- annotation 기반으로 aop 를 구현 하기 위한 설정  -->
+	<aop:aspectj-autoproxy/>
 </beans:beans>
 
 

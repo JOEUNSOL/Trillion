@@ -25,7 +25,7 @@ public class UsersController {
 	
 	// "/users/private/delete.do" 개인정보 삭제 요청 처리
 	@RequestMapping("/users/private/delete")
-	public ModelAndView delete(HttpSession session){
+	public ModelAndView authDelete(HttpSession session){
 		//세션에 저장된 아이디 값을 읽어온다.
 		String id = (String)session.getAttribute("id");
 		//서비스를 이용해서 DB 에서 회원정보 삭제하고 
@@ -42,7 +42,7 @@ public class UsersController {
 	
 	// "/users/private/update.do" 개인정보 수정 요청 처리
 	@RequestMapping("/users/private/update")
-	public ModelAndView update(@ModelAttribute UsersDto dto, 
+	public ModelAndView authUpdate(@ModelAttribute UsersDto dto, 
 			HttpServletRequest request){
 		usersService.update(dto);
 		ModelAndView mView=new ModelAndView();
@@ -55,7 +55,7 @@ public class UsersController {
 	
 	// "/users/private/updateform.do" 개인정보 수정 폼 요청 처리 
 	@RequestMapping("/users/private/updateform")
-	public ModelAndView updateForm(HttpSession session){
+	public ModelAndView authUpdateForm(HttpSession session){
 		//1. 세션에서 아이디 정보를 읽어온다.
 		String id = (String)session.getAttribute("id");
 		//2. 수정할 회원의 정보를 담고 있는 ModelAndView 객체를 얻어온다.
@@ -68,7 +68,7 @@ public class UsersController {
 	
 	// "/users/private/info.do" 개인정보 보기 요청 처리
 	@RequestMapping("/users/private/info")
-	public ModelAndView info(HttpSession session){
+	public ModelAndView authInfo(HttpSession session){
 		//1. 세션에 저장된 id 정보를 읽어온다.
 		String id = (String)session.getAttribute("id");
 		//2. UsersDto 가 담긴 ModelAndView 객체를 리턴 받는다.
