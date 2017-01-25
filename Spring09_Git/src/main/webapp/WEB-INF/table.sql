@@ -6,3 +6,9 @@ bonusPoint NUMBER CHECK(bonusPoint >=0));
 -- sample 데이터 
 
 INSERT INTO client_account VALUES('gura', 0, 0);
+
+-- game 테이블
+
+CREATE TABLE game_score
+(id VARCHAR2(100),
+score NUMBER );
