@@ -25,23 +25,53 @@
 			position: relative;
 			border: 1px solid black;
 		}
+		
+		#scoreBoard{
+			position: absolute;
+			top: 30% ;
+			left: 50%;
+		}
 	</style>
 </head>
 <body>
-<c:forEach var="tmp" items="${list }">
-	<div>${tmp.id }</div>
-	<div>${tmp.score }</div>
-</c:forEach>
-<canvas id="myCanvas" width="500px" height="700px"></canvas>
-<div id="wrapper">
-	<span id="myScore">Score:</span>
-</div>
+<c:choose>
+	<c:when test="${empty id } ">
+	<div> <strong id="hell">익명의 사용자</strong> 님 로그인 하셨습니다 </div>
+</c:when>
+<c:otherwise>
+	<div> <strong id="hell">${id }</strong> 님 로그인 하셨습니다 </div>
+</c:otherwise>
+</c:choose>
+
+
+<div id="scoreBoard">
+	<c:forEach var="tmp" items="${list }">
+		<div>${tmp.id }님의 점수 :   ${tmp.score }</div>
+	</c:forEach>
+</div>	
+	
+	
+	
+	<canvas id="myCanvas" width="500px" height="700px"></canvas>
+	<div id="wrapper">
+		<span id="myScore">Score:</span>
+	</div>
+
+
+
 
 
 
 
 
 <script>
+
+//아이디 등 설정!
+var myId = document.querySelector("#hell").innerText;
+console.log(myId);
+
+
+
 
 var canvas = document.querySelector("#myCanvas");
 	var context=canvas.getContext("2d");
@@ -150,7 +180,12 @@ var canvas = document.querySelector("#myCanvas");
 			alert(" GAVEOVER! 당신의 스코어:" + score);
 			//location.reload(); //새로 고침
 			// 정호석 스프링 용 추가!
-			location.href = "${pageContext.request.contextPath }/game/insert.do?id=${id}&score="+score;
+			
+				location.href = "${pageContext.request.contextPath }/game/insert.do?id="+myId+"&score="+score;
+			
+			
+			
+			
 
 
 		}
