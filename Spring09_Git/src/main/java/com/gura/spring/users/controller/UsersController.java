@@ -1,5 +1,8 @@
 package com.gura.spring.users.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring.users.dto.UsersDto;
@@ -155,6 +159,30 @@ public class UsersController {
 		
 		return "users/signup_form";
 	}
+	@RequestMapping("/users/idList")
+	public ModelAndView idList(HttpServletRequest request){
+		ModelAndView mview = new ModelAndView();
+		String  id = (String)request.getSession().getAttribute("id");
+		
+		
+		
+		String ip= request.getRemoteAddr();
+		mview.addObject("id",id);
+		mview.addObject("ip",ip);
+		mview.setViewName("users/idList");
+		return mview; 
+	}
+	
+	
+	@RequestMapping("/users/send")
+	@ResponseBody
+	public Map<String,Object> sendMessage(@RequestParam String sendMessage){
+		Map<String,Object> map =new HashMap<String, Object>();
+		System.out.println("들어옴");
+		map.put("sendMessage", sendMessage);
+		return map;
+	}
+	
 }
 
 

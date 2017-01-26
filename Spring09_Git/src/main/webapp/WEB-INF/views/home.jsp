@@ -27,7 +27,15 @@
 	<li><a href="cafe/list.do">카페 글 목록 보기</a></li>
 	<li><a href="shop/index.do">쇼핑</a></li>
 	<li><a href="test/test.do">TEST</a></li>
+	<li><a href="users/idList.do">유저목록</a></li>
 </ul>
+
+
+<div>
+	<c:forEach var="i" begin=""   end="">
+		<span></span>
+	 </c:forEach>
+</div>
 </body>
 </html>
 
