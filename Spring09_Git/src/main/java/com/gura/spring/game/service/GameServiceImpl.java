@@ -2,6 +2,7 @@ package com.gura.spring.game.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,6 +13,7 @@ import com.gura.spring.game.dto.GameDto;
 public class GameServiceImpl implements GameService {
 
 	//의존 객체 주입
+	@Autowired
 	private GameDao gameDao;
 	
 	@Override
