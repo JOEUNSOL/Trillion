@@ -148,7 +148,9 @@ var canvas = document.querySelector("#myCanvas");
 	function gameOver(){
 		if(lifeList.length==0){
 			alert(" GAVEOVER! 당신의 스코어:" + score);
-			location.reload(); //새로 고침
+			//location.reload(); //새로 고침
+			// 정호석 스프링 용 추가!
+			location.href = "${pageContext.request.contextPath }/game/insert.do?id=${id}&score="+score;
 
 
 		}

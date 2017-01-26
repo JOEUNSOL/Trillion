@@ -7,6 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gura.spring.game.dto.GameDto;
 
 public interface GameDao {
-	public void insert(String id, int score);
+	public void insert(GameDto dto);
 	public List<GameDto> list();
 }

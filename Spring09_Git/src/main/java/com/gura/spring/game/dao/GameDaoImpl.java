@@ -14,16 +14,20 @@ public class GameDaoImpl implements GameDao {
 	@Autowired
 	private SqlSession session;
 
-	@Override
-	public void insert(String id, int score) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public List<GameDto> list() {
 		List<GameDto> list = session.selectList("game.list");
 		return list;
+	}
+
+
+
+	@Override
+	public void insert(GameDto dto) {
+		session.insert("game.insert", dto);
+		
 	}
 
 }

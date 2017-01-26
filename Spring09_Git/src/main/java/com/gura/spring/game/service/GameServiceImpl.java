@@ -12,7 +12,7 @@ import com.gura.spring.game.dto.GameDto;
 @Component
 public class GameServiceImpl implements GameService {
 
-	//의존 객체 주입
+	//�쓽議� 媛앹껜 二쇱엯
 	@Autowired
 	private GameDao gameDao;
 	
@@ -28,9 +28,20 @@ public class GameServiceImpl implements GameService {
 	}
 
 	@Override
-	public void updateScoreList(String id, int score) {
-		// TODO Auto-generated method stub
+	public ModelAndView updateScoreList(GameDto dto) {
 		
+		gameDao.insert(dto);
+		
+		List<GameDto> list = gameDao.list();
+		 
+		 ModelAndView mView = new ModelAndView();
+		 mView.addObject("list", list);
+		 mView.setViewName("game/main");
+		
+		
+		return mView;
 	}
+
+	
 
 }
