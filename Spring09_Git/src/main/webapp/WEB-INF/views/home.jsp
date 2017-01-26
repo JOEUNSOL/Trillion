@@ -26,6 +26,7 @@
 <ul>
 	<li><a href="cafe/list.do">카페 글 목록 보기</a></li>
 	<li><a href="shop/index.do">쇼핑</a></li>
+	<a href="game/list.do">게임 게시판으로!</a>
 </ul>
 </body>
 </html>

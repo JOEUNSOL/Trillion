@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="game">
+	
+	<select id="getList" resultType="gameDto" >
+		SELECT *
+		FROM
+			(SELECT result1.*, ROWNUM rnum
+			 FROM 	(SELECT id, score
+					FROM game_score
+					
+					ORDER BY score DESC) result1
+			)
+		WHERE 
+		<![CDATA[ rnum >= 1 AND rnum <= 10 ]]>
+	</select>	
+	<insert id="insert" parameterType="gameDto">
+		INSERT INTO game_score
+		(id, score)
+		VALUES(#{id}, #{score})
+	</insert>	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
