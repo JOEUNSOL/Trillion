@@ -26,6 +26,7 @@
 <ul>
 	<li><a href="cafe/list.do">카페 글 목록 보기</a></li>
 	<li><a href="shop/index.do">쇼핑</a></li>
+	<li><a href="test/test.do">TEST</a></li>
 </ul>
 </body>
 </html>

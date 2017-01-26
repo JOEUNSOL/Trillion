@@ -71,6 +71,7 @@
 	<context:component-scan base-package="com.gura.spring.cafe.*" />
 	<context:component-scan base-package="com.gura.spring.shop.*" />
 	<context:component-scan base-package="com.gura.spring.aop"/>
+	<context:component-scan base-package="com.gura.spring.test.*"/>
 	
    <!-- Spring Transaction Manager 설정 -->
 	<beans:bean id="txManager"
