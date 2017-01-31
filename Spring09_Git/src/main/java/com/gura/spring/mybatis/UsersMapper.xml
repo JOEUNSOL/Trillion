@@ -10,9 +10,14 @@
 		FROM users
 		WHERE id=#{id}
 	</select>
-
-
-	<select id="isExistId" parameterType="string" resultType="string">
+	
+	<select id="isExistId" parameterType="usersDto" resultType="usersDto">
+		SELECT id, pwd 
+		FROM users
+		WHERE id=#{id} AND pwd=#{pwd}	
+	</select>
+	
+	<select id="isExistId2" parameterType="string" resultType="string">
 		SELECT id
 		FROM users
 		WHERE id=#{id}
@@ -23,24 +28,33 @@
 		(id, pwd, email, regdate)
 		VALUES(#{id}, #{pwd}, #{email}, SYSDATE)
 	</insert>
-	
-	<select id="getPwd" parameterType="string" resultType="string">
-		SELECT pwd 
+	<select id="isValid" parameterType="usersDto" 
+		resultType="usersDto">
+		SELECT id, pwd 
 		FROM users
-		WHERE id=#{id}	
+		WHERE id=#{id} AND pwd=#{pwd}		
 	</select>
 	
+	<select id="getPwd" parameterType="string"  
+		resultType="string">
+		SELECT pwd 
+		FROM users
+		WHERE id=#{id}		
+	</select>
 	<update id="update" parameterType="usersDto">
-		UPDATE users
-		SET pwd=#{pwd}, email=#{email}
-		WHERE id=#{id}	
+	    UPDATE users
+	    SET pwd=#{pwd}, email=#{email}
+	    WHERE id=#{id}
 	</update>
-	
 	<delete id="delete" parameterType="string">
-		DELETE FROM users
-		WHERE id=#{id}
+	    DELETE FROM users
+	    WHERE id=#{id}
 	</delete>
 </mapper>
+
+
+
+
 
 
 
