@@ -85,6 +85,9 @@ public class UsersController {
 		//세션 초기화
 		//session.invalidate();
 		//세션에서 아이디 정보 삭제 
+		//세션 초기화
+				//session.invalidate();
+				//세션에서 아이디 정보 삭제 
 		session.removeAttribute("id");
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("msg", "로그 아웃 되었습니다.");
