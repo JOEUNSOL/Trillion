@@ -176,7 +176,7 @@ public class UsersController {
 	
 	@RequestMapping("/users/send")
 	@ResponseBody
-	public Map<String,Object> sendMessage(@RequestParam String sendMessage){
+	public Map<String,Object> sendMessage(@RequestParam String sendMessage ){
 		Map<String,Object> map =new HashMap<String, Object>();
 		System.out.println("들어옴");
 		map.put("sendMessage", sendMessage);

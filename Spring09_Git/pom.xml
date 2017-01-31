@@ -172,6 +172,13 @@
 			<artifactId>cglib</artifactId>
 			<version>3.2.0</version>
 		</dependency>
+		<!-- websocket 프레임워크-->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-websocket</artifactId>
+		    <version>4.3.4.RELEASE</version>
+		</dependency>
+		
 	</dependencies>
     <build>
         <plugins>
