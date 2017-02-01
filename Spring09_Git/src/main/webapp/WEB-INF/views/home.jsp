@@ -6,6 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>/home.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
+<style>
+	body{
+		 background: linear-gradient(180deg, rgba(6, 242, 164, .5), rgba(255,255, 255, .5)) fixed, url("https://wallpaperscraft.com/image/march_flowers_spring_patterns_butterflies_100634_1680x1050.jpg") fixed;
+		 background-repeat: no-repeat;
+		 background-size: cover;
+	}
+	*{
+		text-align: center;
+		list-style-type: none;
+	}
+	ul{
+		margin:0px;
+		padding: 0px;
+		
+	}
+</style>
 </head>
 <body>
 <h3>인덱스 페이지 입니다.</h3>
@@ -26,6 +43,7 @@
 <ul>
 	<li><a href="cafe/list.do">카페 글 목록 보기</a></li>
 	<li><a href="shop/index.do">쇼핑</a></li>
+	<li><a href="file/fileList.do">저장소</a></li>
 </ul>
 </body>
 </html>

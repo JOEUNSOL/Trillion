@@ -6,7 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/list.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
 <style>
+	body{
+	 background: linear-gradient(0deg, rgba(6, 242, 164, .5), rgba(255,255, 255, .5)) fixed, url("http://www.durhambungalows.ca/images/20617/Spring.jpg") fixed;
+
+
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.page_display{
+		text-align: center;
+	}
 	.page_display a{
 		text-decoration: none;
 		color: #000;
@@ -20,19 +31,22 @@
 	.page_display a.muted{
 		color: #cecece;
 	}
+	*{
+		text-align: center;
+	}
 </style>
 </head>
 <body>
 <h3>카페 글 목록입니다.</h3>
 <a href="private/insertform.do">새글쓰기</a>
-<table>
+<table class="table">
 	<thead>
 		<tr>
-			<th>글번호</th>
-			<th>제목</th>
-			<th>작성자</th>
-			<th>조회수</th>
-			<th>등록일</th>
+			<th style="text-align: center;">글번호</th>
+			<th style="text-align: center;">제목</th>
+			<th style="text-align: center;">작성자</th>
+			<th style="text-align: center;">조회수</th>
+			<th style="text-align: center;">등록일</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -49,33 +63,35 @@
 </table>
 <!-- 페이지 디스플레이 출력 -->
 <div class="page_display">
+<ul class="pagination">
 	<c:choose>
 		<c:when test="${startPageNum ne 1 }">
-			<a href="list.do?pageNum=${startPageNum-1 }">[ 이전 ]</a>
+			<li><a href="list.do?pageNum=${startPageNum-1 }">[ 이전 ]</a></li>
 		</c:when>
 		<c:otherwise>
-			<a class="muted" href="javascript:">[ 이전 ]</a>
+			<li><a class="muted" href="javascript:">[ 이전 ]</a></li>
 		</c:otherwise>
 	</c:choose>
 
 	<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
 		<c:choose>
 			<c:when test="${i eq pageNum }">
-				<a class="active" href="list.do?pageNum=${i }">${i }</a>
+				<li><a class="active" href="list.do?pageNum=${i }">${i }</a></li>
 			</c:when>
 			<c:otherwise>
-				<a href="list.do?pageNum=${i }">${i }</a>
+				<li><a href="list.do?pageNum=${i }">${i }</a></li>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>
 	<c:choose>
 		<c:when test="${endPageNum lt totalPageCount }">
-			<a href="list.do?pageNum=${endPageNum+1 }">[ 다음 ]</a>
+			<li><a href="list.do?pageNum=${endPageNum+1 }">[ 다음 ]</a></li>
 		</c:when>
 		<c:otherwise>
-			<a class="muted" href="javascript:">[ 다음 ]</a>
+			<li><a class="muted" href="javascript:">[ 다음 ]</a></li>
 		</c:otherwise>
 	</c:choose>
+	</ul>
 </div>
 <!-- 검색어 관련 form -->
 <form action="list.do" method="post" id="keywordForm">
