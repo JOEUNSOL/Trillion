@@ -83,7 +83,7 @@ public class UsersController {
 	
 	
 	// "/users/signup.do" 요청처리
-	@RequestMapping("/signup")
+	@RequestMapping("/mail/signup")
 	public ModelAndView signup(HttpServletRequest request,
 			@ModelAttribute UsersDto dto){
 		usersService.insert(dto);
@@ -149,12 +149,12 @@ public class UsersController {
 		}
 	
 	
-	@RequestMapping("/users/signup_form")
+	@RequestMapping("/mail/write")
 	public String signupForm(){
 		
-		return "users/signup_form";
+		return "mail/write";
 	}
-	
+	  
 	
 }
 

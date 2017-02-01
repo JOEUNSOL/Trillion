@@ -54,7 +54,7 @@
 			           class="btn btn-default btn-block m-t-md" data-toggle="modal" data-target="#myModal"> 로그인</a>
 			           <a href="" class="btn btn-default btn-block m-t-md" 
 			               data-toggle="modal" data-target="#myModal3"> 회원가입</a>
-			           <a href="emailAuth.do" class="btn btn-default btn-block m-t-md">이메일 발송</a>
+			           <a href="email/write.do" class="btn btn-default btn-block m-t-md">이메일 발송</a>
 			        </c:when>
 	              </c:choose>    
 			           <a href="cafe/private/insertform.do" class="btn btn-default btn-block m-t-md">회원 전용 카페글 쓰기</a>
@@ -138,12 +138,21 @@
 							<label for="pwd">비밀번호</label> <input class="form-control"
 							type="password" name="pwd" id="pwd" />
 						</div>
-						<div class="form-group">
 						
+						
+						    <label for="email">이메일</label> <input class="form-control"
+							type="text" name="email" id="email" />
+							<button type="submit">인증번호전송</button><br />
+					
+							<label for="">인증</label> <input class="form-control"
+							type="text" name="email" id="email" />
+							<button type="submit" >인증확인</button><br />
 							<button id="id2"  type="submit" class="btn btn-default btn-block m-t-md">로그인</button>
 						
-						</div>
-					</form>
+						
+						
+						
+		 </form>
      </div> 
    </div> 
 </div> 
