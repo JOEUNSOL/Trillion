@@ -15,7 +15,9 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
-	<tx:annotation-driven/>
+	
+	
+	
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 
 		<property name="host" value="smtp.gmail.com" />

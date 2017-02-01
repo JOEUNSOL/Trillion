@@ -140,10 +140,18 @@
 						</div>
 						
 						
-						    <label for="email">이메일</label> <input class="form-control"
-							type="text" name="email" id="email" />
-							<button type="submit">인증번호전송</button><br />
-					
+						    
+							<input type="hidden" id="senderName" name="senderName" value="김강민회사">
+							<input type="hidden" id="senderMail" name="senderMail" value="fjqngodys2@gmail.com"/>
+							<input name="receiveMail" id="receiveMail" /><br />
+							<input type="hidden" id="subject" name="subject" value="인증번호 입니다."/>
+							<input  type="hidden" id="message" name="message" value="인증번호:1234"/>
+							
+							
+							
+							
+							<button id="checkBtn10">인증번호전송</button><br />
+					        <span style="color:red;">${message }</span>  
 							<label for="">인증</label> <input class="form-control"
 							type="text" name="email" id="email" />
 							<button type="submit" >인증확인</button><br />
@@ -311,6 +319,32 @@
 	 		
 	 		return false; //폼전송 막기 
 	 	});
+        
+	 	
+
+	 	//중복 확인 버튼을 눌렀을때 실행할 함수 등록 
+		$("#checkBtn10").click(function(){
+			//입력한 id 읽어오기
+			
+			var senderName=$("#senderName").val();
+			var senderMail=$("#senderMail").val();
+			var receiveMail=$("#receiveMail").val();
+			var subject=$("#subject").val();
+			var message=$("#message").val();
+			
+			//ajax 를 이용해서 서버에 전송하고 사용가능 여부 응답받기
+			$.ajax({
+				url:"send.do",
+				method:"post",
+				data:{"senderName":senderName,"senderMail":senderMail,
+					"receiveMail":receiveMail,"subject":subject,"message":message},
+				success:function(data){
+					
+				}
+			});
+			
+			return false; //폼전송 막기 
+		});
 
 		
 </script>	

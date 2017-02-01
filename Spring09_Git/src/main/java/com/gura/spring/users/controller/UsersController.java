@@ -3,6 +3,7 @@ package com.gura.spring.users.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gura.spring.model.email.EmailVo;
+import com.gura.spring.service.email.EmailService;
 import com.gura.spring.users.dto.UsersDto;
 import com.gura.spring.users.service.UsersService;
 
@@ -23,6 +26,8 @@ public class UsersController {
 	@Autowired
 	private UsersService usersService;
 	
+	@Inject
+    EmailService emailService;
 	// "/users/private/delete.do" 개인정보 삭제 요청 처리
 	@RequestMapping("/users/private/delete")
 	public ModelAndView authDelete(HttpSession session){
@@ -154,8 +159,31 @@ public class UsersController {
 		
 		return "mail/write";
 	}
-	  
 	
+
+	
+	  
+	@RequestMapping("/send")
+	@ResponseBody
+	public String send(@RequestParam String senderName,@RequestParam String senderMail,
+			@RequestParam String receiveMail,@RequestParam String subject,
+			@RequestParam String message){
+		EmailVo vo=new EmailVo();
+		
+	    vo.setSenderName(senderName);
+		vo.setSenderMail(senderMail);
+		vo.setReceiveMail(receiveMail);
+		vo.setSubject(subject);
+		vo.setMessage(message);
+		try {
+			emailService.sendMail(vo);
+			//model.addAttribute("message","메일 발송되었습니다");
+		} catch (Exception e) {
+			e.printStackTrace();
+			//model.addAttribute("message","이메일 발송 실패..");
+		}
+		return "home";
+	}
 }
 
 
