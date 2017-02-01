@@ -169,12 +169,13 @@ public class UsersController {
 			@RequestParam String receiveMail,@RequestParam String subject,
 			@RequestParam String message){
 		EmailVo vo=new EmailVo();
-		
+		vo.setMessage2(message);
 	    vo.setSenderName(senderName);
 		vo.setSenderMail(senderMail);
 		vo.setReceiveMail(receiveMail);
 		vo.setSubject(subject);
 		vo.setMessage(message);
+		System.out.println(message+":1234");
 		try {
 			emailService.sendMail(vo);
 			//model.addAttribute("message","메일 발송되었습니다");
@@ -183,6 +184,30 @@ public class UsersController {
 			//model.addAttribute("message","이메일 발송 실패..");
 		}
 		return "home";
+	}
+	
+	@RequestMapping("/ident")
+	@ResponseBody
+	public Map<String, Object> checkid3(@RequestParam String message2
+			,@RequestParam String message){
+		boolean canUse = false;
+		EmailVo vo=new EmailVo(message);
+		
+		//아이디 사용가능 여부
+		String getId=vo.getMessage2();
+		System.out.println(vo+"vo~~~~");
+		System.out.println(getId+"getId~~~~~~");
+		System.out.println(message2+"message2~~~~~~~~~~");
+		 if(message2.equals(getId)){//사용할수 없는 아이디 라고 가정  
+			canUse=true;
+		}else{  
+			canUse=false;  
+		}
+		Map<String, Object> map=new HashMap<String,Object>();
+		map.put("canUse", canUse);
+		// Map 를 리턴해주면 응답되는 json 문자열은 
+		// {"canUse":true}  or {"canUse":false} 가 된다. 
+		return map;  
 	}
 }
 
