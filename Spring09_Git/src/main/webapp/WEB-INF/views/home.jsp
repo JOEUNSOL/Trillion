@@ -11,8 +11,15 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 
 <style>    
+	body{
+		background: linear-gradient(180deg, rgba(6, 242, 164, .5), rgba(255,255, 255, .5)) fixed, url("http://www.durhambungalows.ca/images/20617/Spring.jpg") fixed;
+	}
      .container{
          width: 300px;
+         position: absolute;
+         top: 27%; 
+         left: 40%;
+         
      }
      
      #block0{
@@ -26,6 +33,15 @@
 	 }
 	  #block4{
 		display: none;
+	 }
+	 .btn{
+	 	color: green;
+	 	background-color: MediumSeaGreen ;
+	 }
+	 .well{
+		 	
+		border: 1px solid green;
+		background-color: rgba(0,0,0,.1);
 	 }
 	
 </style>
@@ -147,7 +163,7 @@
 						
 						
 						    <label class="control-label" for="id4"></label> 
-							<input type="hidden" id="senderName" name="senderName" value="김강민회사">
+							<input type="hidden" id="senderName" name="senderName" value="Trillion 소프트웨어">
 							<input type="hidden" id="senderMail" name="senderMail" value="fjqngodys2@gmail.com"/>
 							<input name="email" id="email" /><br />
 							<input type="hidden" id="subject" name="subject" value="인증번호 입니다."/>

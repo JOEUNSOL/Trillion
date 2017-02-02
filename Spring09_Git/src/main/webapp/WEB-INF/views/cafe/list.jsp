@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/list.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 <style>
 	.page_display a{
 		text-decoration: none;
@@ -25,7 +26,7 @@
 <body>
 <h3>카페 글 목록입니다.</h3>
 <a href="private/insertform.do">새글쓰기</a>
-<table>
+<table class="table">
 	<thead>
 		<tr>
 			<th>글번호</th>
@@ -49,6 +50,7 @@
 </table>
 <!-- 페이지 디스플레이 출력 -->
 <div class="page_display">
+
 	<c:choose>
 		<c:when test="${startPageNum ne 1 }">
 			<a href="list.do?pageNum=${startPageNum-1 }">[ 이전 ]</a>
@@ -76,7 +78,9 @@
 			<a class="muted" href="javascript:">[ 다음 ]</a>
 		</c:otherwise>
 	</c:choose>
+
 </div>
+
 <!-- 검색어 관련 form -->
 <form action="list.do" method="post" id="keywordForm">
 	<label for="condition">검색 조건</label>

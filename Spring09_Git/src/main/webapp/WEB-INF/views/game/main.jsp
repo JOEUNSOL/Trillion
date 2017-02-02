@@ -4,9 +4,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+<meta charset="UTF-8">
+<title>Document</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 	<style>
+	body{
+		background-image: url("http://www.hrhwalls.com/reimg/image.php?src=http://img.hrhwalls.com/images2/ichg2zbg34l.jpg&h=1050&w=1680");
+	}
 		#myCanvas{
 			border: 1px solid black;
 		}
@@ -31,6 +35,12 @@
 			top: 30% ;
 			left: 50%;
 		}
+		.table{
+			color:white; 
+			text-align: center;
+			width: 200px;
+		}
+		
 	</style>
 </head>
 <body>
@@ -44,11 +54,12 @@
 </c:choose>
 
 
-<div id="scoreBoard">
+<table id="scoreBoard" class="table">
 	<c:forEach var="tmp" items="${list }">
-		<div>${tmp.id }님의 점수 :   ${tmp.score }</div>
+		<tr><th>${tmp.id }님의 점수 :   ${tmp.score }</th></tr>
+		
 	</c:forEach>
-</div>	
+</table>	
 	
 	
 	
