@@ -88,7 +88,7 @@ public class UsersController {
 	
 	
 	// "/users/signup.do" 요청처리
-	@RequestMapping("/mail/signup")
+	@RequestMapping("signup")
 	public ModelAndView signup(HttpServletRequest request,
 			@ModelAttribute UsersDto dto){
 		usersService.insert(dto);
@@ -99,7 +99,7 @@ public class UsersController {
 		
 		return mView;
 	}
-	
+	  
 	
 	// "/users/signin.do" 로그인 요청 처리  
 	@RequestMapping("signin")
@@ -166,13 +166,13 @@ public class UsersController {
 	@RequestMapping("/send")
 	@ResponseBody
 	public String send(@RequestParam String senderName,@RequestParam String senderMail,
-			@RequestParam String receiveMail,@RequestParam String subject,
+			@RequestParam String email,@RequestParam String subject,
 			@RequestParam String message){
 		EmailVo vo=new EmailVo();
 		vo.setMessage2(message);
 	    vo.setSenderName(senderName);
 		vo.setSenderMail(senderMail);
-		vo.setReceiveMail(receiveMail);
+		vo.setEmail(email);
 		vo.setSubject(subject);
 		vo.setMessage(message);
 		System.out.println(message+":1234");

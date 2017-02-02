@@ -20,7 +20,7 @@ public class EmailService {
 			MimeMessage msg=mailSender.createMimeMessage();
 			//이메일 수신자
 			msg.addRecipient(RecipientType.TO
-					, new InternetAddress(vo.getReceiveMail()));
+					, new InternetAddress(vo.getEmail()));
 			//이메일 발신자
 			msg.addFrom(new InternetAddress[]{
 	new InternetAddress(vo.getSenderMail(),vo.getSenderName())
