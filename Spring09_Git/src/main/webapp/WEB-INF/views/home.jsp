@@ -43,7 +43,11 @@
 		border: 1px solid green;
 		background-color: rgba(0,0,0,.1);
 	 }
-	
+	#pos{
+		position: absolute;
+		top: 100px;
+		left: -31%;
+	}
 </style>
 
 </head>
@@ -100,8 +104,8 @@
 		
 		  
 		   <div class="">
-			   	 <button class="close" data-dismiss="modal">&times;</button>
-				<div class="login-box well">
+			   	 
+				<div class="login-box well" id="pos">
 			
                     
 					<form action="signin.do?uri=${param.uri }" method="post"
