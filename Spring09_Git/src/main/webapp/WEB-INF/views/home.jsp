@@ -12,7 +12,7 @@
 
 <style>    
 	body{
-		background: linear-gradient(180deg, rgba(6, 242, 164, .5), rgba(255,255, 255, .5)) fixed, url("http://www.durhambungalows.ca/images/20617/Spring.jpg") fixed;
+		background: linear-gradient(-45deg, rgba(6, 200, 120, .5), rgba(255,255, 255, .5)) fixed, url("http://www.durhambungalows.ca/images/20617/Spring.jpg") fixed;
 	}
      .container{
          width: 300px;
