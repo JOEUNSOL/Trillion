@@ -57,7 +57,7 @@
 			           class="btn btn-default btn-block m-t-md" data-toggle="modal" data-target="#myModal"> 로그인</a>
 			           <a href="" class="btn btn-default btn-block m-t-md" 
 			               data-toggle="modal" data-target="#myModal3"> 회원가입</a>
-			           <a href="email/write.do" class="btn btn-default btn-block m-t-md">이메일 발송</a>
+			          
 			        </c:when>
 	              </c:choose>    
 			           <a href="cafe/private/insertform.do" class="btn btn-default btn-block m-t-md">회원 전용 카페글 쓰기</a>
@@ -151,14 +151,14 @@
 							<input  type="hidden" id="message" name="message"  />
 							<p id="block4" class="help-block">인증번호가 전송됬습니다.</p>
 							 <span class="glyphicon form-control-feedback"></span>
-							
+							 
 							
 							<button id="checkBtn10">인증번호전송</button><br />
 					        <span style="color:red;">${message }</span>  
 							<label for="">인증</label> <input class="form-control"
 							type="text" id="message2" name="message2" />
 							<button id="checkBtn12"  type="submit" >인증확인</button><br />
-							<button id="id2"  type="submit" class="btn btn-default btn-block m-t-md">로그인</button>
+							<button id="id2"  type="submit" class="btn btn-default btn-block m-t-md">회원가입</button>
 						
 						
 						
