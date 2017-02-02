@@ -13,13 +13,16 @@
 	}
 		#myCanvas{
 			border: 1px solid black;
+			position: relative;
+			top:30px;
+			left: 37%;
 		}
 		#myScore{
-			border: 1px solid red;
-			
-			position: 50% 50%;
+			border: 3px solid DarkOrchid ;
 			font-size: 100px;
 			position: absolute;
+			left: 850px;
+			color: white;
 			/*top: -50px;
 			left: -50px;*/
 
@@ -32,8 +35,8 @@
 		
 		#scoreBoard{
 			position: absolute;
-			top: 30% ;
-			left: 50%;
+			top: 50% ;
+			left: 85%;
 		}
 		.table{
 			color:white; 
@@ -93,7 +96,7 @@ var canvas = document.querySelector("#myCanvas");
 
 
 	var backbg=new Image();
-	backbg.src="${pageContext.request.contextPath }/resources/images/01_iron_man_2.jpg";
+	backbg.src="http://bntnews.hankyung.com/bntdata/images/photo/201606/d9e0ab5057b386a690b07cd5f5d64491.jpg";
 
 	// 적기 이미지 로딩하기
 	var player1 =new Image();
@@ -139,7 +142,7 @@ var canvas = document.querySelector("#myCanvas");
 // // sound.play();
 
 	function lifeMaker(){
-		for (var i = 0; i < 4; i++) {
+		for (var i = 0; i <4; i++) {
 			
 		
 		
