@@ -108,7 +108,7 @@
 					</form>
 				</div>
 
->>>>>>> refs/remotes/origin/master
+
 		</div>
 	</div>
 	  
@@ -131,7 +131,7 @@
 
 		
 		   
-					<form action="signin.do?uri=${param.uri }" method="post"
+					<form action="signup.do?uri=${param.uri }" method="post"
 						name="sForm" novalidate id="myform">
 						<div class="form-group has-feedback">
 							<label class="control-label" for="id3">아이디</label> 
@@ -149,7 +149,7 @@
 						    <label class="control-label" for="id4"></label> 
 							<input type="hidden" id="senderName" name="senderName" value="김강민회사">
 							<input type="hidden" id="senderMail" name="senderMail" value="fjqngodys2@gmail.com"/>
-							<input name="receiveMail" id="receiveMail" /><br />
+							<input name="email" id="email" /><br />
 							<input type="hidden" id="subject" name="subject" value="인증번호 입니다."/>
 							<input  type="hidden" id="message" name="message"  />
 							<p id="block4" class="help-block">인증번호가 전송됬습니다.</p>
@@ -340,7 +340,7 @@
 			var count=1;
 			var senderName=$("#senderName").val();
 			var senderMail=$("#senderMail").val();
-			var receiveMail=$("#receiveMail").val();
+			var email=$("#email").val();
 			var subject=$("#subject").val();
 			var message=$("#message").val();
 			
@@ -349,7 +349,7 @@
 				url:"send.do",
 				method:"post",
 				data:{"senderName":senderName,"senderMail":senderMail,
-					"receiveMail":receiveMail,"subject":subject,"message":message},
+					"email":email,"subject":subject,"message":message},
 				success:function(data){
 					
 				}
