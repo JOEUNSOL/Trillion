@@ -121,7 +121,7 @@ var canvas = document.querySelector("#myCanvas");
 	setInterval(drawScreen, 20);
 
 	lifeMaker();
-	alert();
+	
 
 // 	var sound = new Audio("sounds/xxx.mp3");
 // sound.currentTime=0;
@@ -177,11 +177,15 @@ var canvas = document.querySelector("#myCanvas");
 
 	function gameOver(){
 		if(lifeList.length==0){
+			
 			alert(" GAVEOVER! 당신의 스코어:" + score);
+			
+			location.href = "${pageContext.request.contextPath }/game/insert.do?id="+myId+"&score="+score;
+			
 			//location.reload(); //새로 고침
 			// 정호석 스프링 용 추가!
 			
-				location.href = "${pageContext.request.contextPath }/game/insert.do?id="+myId+"&score="+score;
+				
 			
 			
 			
